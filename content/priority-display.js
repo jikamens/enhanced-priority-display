@@ -15,6 +15,11 @@ function enhancedPriorityDisplayIcons() {
 				       pref);
     };
 
+    function gBP(pref) {
+	return prefService.getBoolPref("extensions.EnhancedPriorityDisplay." +
+				       pref);
+    };
+
     function priorityIconsOnLoad() {
 	var ObserverService = Components.classes["@mozilla.org/observer-service;1"]
 	    .getService(Components.interfaces.nsIObserverService);
@@ -42,22 +47,28 @@ function enhancedPriorityDisplayIcons() {
 		    return true;
 		},
 
-		getExtensionProperties: function(row, props) {
+		getExtensionProperties: function(row, props, which) {
 		    var hdr = gDBView.getMsgHdrAt(row);
 		    var priority = hdr.getStringProperty("priority");
+		    var doHigh = gBP(which + "High");
+		    var doLow = gBP(which + "Low");
 		    var property;
 		    switch (priority) {
 		    case "6":
-			property = "enhanced-priority-display-highest";
+			if (doHigh)
+			    property = "enhanced-priority-display-highest";
 			break;
 		    case "5":
-			property = "enhanced-priority-display-high";
+			if (doHigh)
+			    property = "enhanced-priority-display-high";
 			break;
 		    case "3":
-			property = "enhanced-priority-display-low";
+			if (doLow)
+			    property = "enhanced-priority-display-low";
 			break;
 		    case "2":
-			property = "enhanced-priority-display-lowest";
+			if (doLow)
+			    property = "enhanced-priority-display-lowest";
 			break;
 		    }
 		    if (property) {
@@ -69,13 +80,13 @@ function enhancedPriorityDisplayIcons() {
 		},
 
 		getCellProperties: function(row, col, props) {
-		    columnHandler.getExtensionProperties(row, props);
+		    columnHandler.getExtensionProperties(row, props, "Style");
 		    if (columnHandler.old)
 			columnHandler.old.getCellProperties(row, col, props);
 		},
 
 		getRowProperties: function(row, props) {
-		    columnHandler.getExtensionProperties(row, props);
+		    columnHandler.getExtensionProperties(row, props, "Shade");
 		    if (columnHandler.old)
 			columnHandler.old.getRowProperties(row, props);
 		},
@@ -103,7 +114,9 @@ function enhancedPriorityDisplayIcons() {
 	    if (gDBView) {
 		var columnHandler = {
 		    getCellText: function(row, col) {
-			return "";
+			if (gBP("Iconify"))
+			    return "";
+			return gDBView.cellTextForColumn(row, "priorityCol");
 		    },
 
 		    getSortStringForRow: function(hdr) {
@@ -113,48 +126,58 @@ function enhancedPriorityDisplayIcons() {
 		    },
 
 		    isString: function() {
-			return false;
+			return ! gBP("Iconify");
 		    },
 
-		    getExtensionProperties: function(row, props) {
+		    getExtensionProperties: function(row, props, which) {
 			var hdr = gDBView.getMsgHdrAt(row);
 			var priority = hdr.getStringProperty("priority");
+			var doHigh = gBP(which + "High");
+			var doLow = gBP(which + "Low");
 			var property;
 			switch (priority) {
 			case "6":
-			    property = "enhanced-priority-display-highest";
+			    if (doHigh)
+				property = "enhanced-priority-display-highest";
 			    break;
 			case "5":
-			    property = "enhanced-priority-display-high";
+			    if (doHigh)
+				property = "enhanced-priority-display-high";
 			    break;
 			case "3":
-			    property = "enhanced-priority-display-low";
+			    if (doLow)
+				property = "enhanced-priority-display-low";
 			    break;
 			case "2":
-			    property = "enhanced-priority-display-lowest";
+			    if (doLow)
+				property = "enhanced-priority-display-lowest";
 			    break;
 			}
 			if (property) {
-			    var aserv=Components
-				.classes["@mozilla.org/atom-service;1"].
-				getService(Components.interfaces.nsIAtomService);
+			    var aserv = Components
+				.classes["@mozilla.org/atom-service;1"]
+				.getService(Components.interfaces.nsIAtomService);
 			    props.AppendElement(aserv.getAtom(property));
 			}
 		    },
 
 		    getCellProperties: function(row, col, props) {
-			columnHandler.getExtensionProperties(row, props);
+			columnHandler .getExtensionProperties(row, props,
+							      "Style");
 			if (columnHandler.old)
 			    columnHandler.old.getCellProperties(row, props);
 		    },
 
 		    getRowProperties: function(row, props) {
-			columnHandler.getExtensionProperties(row, props);
+			columnHandler.getExtensionProperties(row, props,
+							     "Shade");
 			if (columnHandler.old)
 			    columnHandler.old.getRowProperties(row, props);
 		    },
 
 		    getImageSrc: function(row, col) {
+			if (! gBP("Iconify"))
+			    return null;
 			var hdr = gDBView.getMsgHdrAt(row);
 			var priority = hdr.getStringProperty("priority");
 			switch (priority) {
