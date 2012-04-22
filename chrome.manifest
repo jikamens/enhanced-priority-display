@@ -1,0 +1,2 @@
+content	EnhancedPriorityDisplay	content/
+overlay	chrome://messenger/content/messenger.xul	chrome://EnhancedPriorityDisplay/content/priority-display.xul

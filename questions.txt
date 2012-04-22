@@ -1,0 +1,5 @@
+Accessing gDBView from a module... Pass it in as an argument when
+initializing the module? Or could it change later? Or is there a
+better way?
+
+How do I do what I need to do in a bootstrapped extension?

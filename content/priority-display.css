@@ -1,0 +1,15 @@
+treechildren::-moz-tree-image(enhanced-priority-display-low) {
+    opacity: 0.50;
+}
+
+treechildren::-moz-tree-cell-text(enhanced-priority-display-low) {
+    opacity: 0.50;
+}
+
+treechildren::-moz-tree-image(enhanced-priority-display-lowest) {
+    opacity: 0.25;
+}
+
+treechildren::-moz-tree-cell-text(enhanced-priority-display-lowest) {
+    opacity: 0.25;
+}
