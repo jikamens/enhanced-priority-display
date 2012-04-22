@@ -51,7 +51,7 @@ function enhancedPriorityDisplayIcons() {
 			return false;
 		    },
 
-		    getCellProperties: function(row, col, props) {
+		    getExtensionProperties: function(row, props) {
 			var hdr = gDBView.getMsgHdrAt(row);
 			var priority = hdr.getStringProperty("priority");
 			var property;
@@ -75,11 +75,16 @@ function enhancedPriorityDisplayIcons() {
 				getService(Components.interfaces.nsIAtomService);
 			    props.AppendElement(aserv.getAtom(property));
 			}
+		    },
+
+		    getCellProperties: function(row, col, props) {
+			columnHandler.getExtensionProperties(row, props);
 			if (columnHandler.old)
 			    columnHandler.old.getCellProperties(row, props);
 		    },
 
 		    getRowProperties: function(row, props) {
+			columnHandler.getExtensionProperties(row, props);
 			if (columnHandler.old)
 			    columnHandler.old.getRowProperties(row, props);
 		    },

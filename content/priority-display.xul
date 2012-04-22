@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!--<?xml-stylesheet href="priority-display.css" type="text/css"?>-->
+<?xml-stylesheet href="priority-display.css" type="text/css"?>
 <overlay id="sendlater3-backgrounding-overlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script src="priority-display.js"/>

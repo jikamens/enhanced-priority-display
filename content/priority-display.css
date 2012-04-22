@@ -1,15 +1,48 @@
+treechildren::-moz-tree-image(enhanced-priority-display-highest) {
+    /* opacity: 0.50; */
+}
+
+treechildren::-moz-tree-cell-text(enhanced-priority-display-highest) {
+    /* opacity: 0.50; */
+}
+
+treechildren::-moz-tree-row(enhanced-priority-display-highest) {
+    background-image: url("background-highest.gif");
+}
+
+treechildren::-moz-tree-image(enhanced-priority-display-high) {
+    /* opacity: 0.50; */
+}
+
+treechildren::-moz-tree-cell-text(enhanced-priority-display-high) {
+    /* opacity: 0.50; */
+}
+
+treechildren::-moz-tree-row(enhanced-priority-display-high) {
+    background-image: url("background-high.gif");
+}
+
 treechildren::-moz-tree-image(enhanced-priority-display-low) {
-    opacity: 0.50;
+    /* opacity: 0.50; */
 }
 
 treechildren::-moz-tree-cell-text(enhanced-priority-display-low) {
-    opacity: 0.50;
+    /* opacity: 0.50; */
+}
+
+treechildren::-moz-tree-row(enhanced-priority-display-low) {
+    background-image: url("background-low.gif");
 }
 
 treechildren::-moz-tree-image(enhanced-priority-display-lowest) {
-    opacity: 0.25;
+    /* opacity: 0.25; */
 }
 
 treechildren::-moz-tree-cell-text(enhanced-priority-display-lowest) {
-    opacity: 0.25;
+    /* opacity: 0.25; */
 }
+
+treechildren::-moz-tree-row(enhanced-priority-display-lowest) {
+    background-image: url("background-lowest.gif");
+}
+
