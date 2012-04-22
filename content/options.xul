@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://EnhancedPriorityDisplay/locale/prefwindow.dtd">
+<prefwindow id="EnhancedPriorityDisplay-Preferences"
+	    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&prefwindow.title;">
+  <prefpane id="EnhancedPriorityDisplay-pane1" label="&prefwindow.title;">
+    <preferences>
+      <preference id="EnhancedPriorityDisplay-iconify-pref"
+		  name="extensions.EnhancedPriorityDisplay.Iconify"
+		  type="bool"/>
+      <preference id="EnhancedPriorityDisplay-style-high-pref"
+		  name="extensions.EnhancedPriorityDisplay.StyleHigh"
+		  type="bool"/>
+      <preference id="EnhancedPriorityDisplay-style-low-pref"
+		  name="extensions.EnhancedPriorityDisplay.StyleLow"
+		  type="bool"/>
+      <preference id="EnhancedPriorityDisplay-shade-high-pref"
+		  name="extensions.EnhancedPriorityDisplay.ShadeHigh"
+		  type="bool"/>
+      <preference id="EnhancedPriorityDisplay-shade-low-pref"
+		  name="extensions.EnhancedPriorityDisplay.ShadeLow"
+		  type="bool"/>
+      <preference id="EnhancedPriorityDisplay-highest-icon-pref"
+		  name="extensions.EnhancedPriorityDisplay.HighestIcon"
+		  type="unichar"/>
+      <preference id="EnhancedPriorityDisplay-high-icon-pref"
+		  name="extensions.EnhancedPriorityDisplay.HighIcon"
+		  type="unichar"/>
+      <preference id="EnhancedPriorityDisplay-low-icon-pref"
+		  name="extensions.EnhancedPriorityDisplay.LowIcon"
+		  type="unichar"/>
+      <preference id="EnhancedPriorityDisplay-lowest-icon-pref"
+		  name="extensions.EnhancedPriorityDisplay.LowestIcon"
+		  type="unichar"/>
+      <preference id="EnhancedPriorityDisplay-dump-level-pref"
+		  name="extensions.EnhancedPriorityDisplay.logging.dump"
+		  type="string"/>
+      <preference id="EnhancedPriorityDisplay-console-level-pref"
+		  name="extensions.EnhancedPriorityDisplay.logging.console"
+		  type="string"/>
+    </preferences>
+    <tabbox>
+      <tabs>
+	<tab label="&general.label;"/>
+	<tab label="&advanced.label;"/>
+      </tabs>
+      <tabpanels>
+	<tabpanel>
+	  <vbox>
+	    <checkbox id="EnhancedPriorityDisplay-iconify-checkbox"
+		      preference="EnhancedPriorityDisplay-iconify-pref"
+		      label="&iconify.label;"/>
+	    <checkbox id="EnhancedPriorityDisplay-style-high-checkbox"
+		      preference="EnhancedPriorityDisplay-style-high-pref"
+		      label="&styleHigh.label;"/>
+	    <checkbox id="EnhancedPriorityDisplay-style-low-checkbox"
+		      preference="EnhancedPriorityDisplay-style-low-pref"
+		      label="&styleLow.label;"/>
+	    <checkbox id="EnhancedPriorityDisplay-shade-high-checkbox"
+		      preference="EnhancedPriorityDisplay-shade-high-pref"
+		      label="&shadeHigh.label;"/>
+	    <checkbox id="EnhancedPriorityDisplay-shade-low-checkbox"
+		      preference="EnhancedPriorityDisplay-shade-low-pref"
+		      label="&shadeLow.label;"/>
+	  </vbox>
+	</tabpanel>
+	<tabpanel>
+	  <vbox>
+	    <label>&highestIcon.label;</label>
+	    <textbox id="EnhancedPriorityDisplay-highest-icon-textbox"
+		     preference="EnhancedPriorityDisplay-highest-icon-pref"
+		     size="50"/>
+	    <label>&highIcon.label;</label>
+	    <textbox id="EnhancedPriorityDisplay-high-icon-textbox"
+		     preference="EnhancedPriorityDisplay-high-icon-pref"
+		     size="50"/>
+	    <label>&lowIcon.label;</label>
+	    <textbox id="EnhancedPriorityDisplay-low-icon-textbox"
+		     preference="EnhancedPriorityDisplay-low-icon-pref"
+		     size="50"/>
+	    <label>&lowestIcon.label;</label>
+	    <textbox id="EnhancedPriorityDisplay-lowest-icon-textbox"
+		     preference="EnhancedPriorityDisplay-lowest-icon-pref"
+		     size="50"/>
+	    <label>&dumpLevel.label;</label>
+	    <menulist id="EnhancedPriorityDisplay-dump-level-menu"
+		      preference="EnhancedPriorityDisplay-dump-level-pref">
+	      <menupopup>
+		<menuitem name="dumplevel" label="Fatal"  value="Fatal" />
+		<menuitem name="dumplevel" label="Error"  value="Error" />
+		<menuitem name="dumplevel" label="Warn"   value="Warn"  />
+		<menuitem name="dumplevel" label="Info"   value="Info"  />
+		<menuitem name="dumplevel" label="Config" value="Config"/>
+		<menuitem name="dumplevel" label="Debug"  value="Debug" />
+		<menuitem name="dumplevel" label="Trace"  value="Trace" />
+		<menuitem name="dumplevel" label="All"    value="All"   />
+	      </menupopup>
+	    </menulist>
+	    <label>&consoleLevel.label;</label>
+	    <menulist id="EnhancedPriorityDisplay-console-level-menu"
+		      preference="EnhancedPriorityDisplay-console-level-pref">
+	      <menupopup>
+		<menuitem name="consolelevel" label="Fatal"  value="Fatal" />
+		<menuitem name="consolelevel" label="Error"  value="Error" />
+		<menuitem name="consolelevel" label="Warn"   value="Warn"  />
+		<menuitem name="consolelevel" label="Info"   value="Info"  />
+		<menuitem name="consolelevel" label="Config" value="Config"/>
+		<menuitem name="consolelevel" label="Debug"  value="Debug" />
+		<menuitem name="consolelevel" label="Trace"  value="Trace" />
+		<menuitem name="consolelevel" label="All"    value="All"   />
+	      </menupopup>
+	    </menulist>
+	  </vbox>
+	</tabpanel>
+      </tabpanels>
+    </tabbox>
+  </prefpane>
+</prefwindow>

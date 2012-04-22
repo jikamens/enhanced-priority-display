@@ -6,8 +6,9 @@
     <em:name>Enhanced Priority Display</em:name>
     <em:version>1.0</em:version>
     <em:creator>Jonathan Kamens</em:creator>
-    <em:description>Change text into icons in the Priority column.</em:description>
+    <em:description>Enhanced thread pane display of message priorities.</em:description>
     <em:homepageURL>https://addons.mozilla.org/thunderbird/addon/enhanced-priority-display/</em:homepageURL>
+    <em:optionsURL>chrome://EnhancedPriorityDisplay/content/options.xul</em:optionsURL>
     <em:targetApplication>
       <Description>
         <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id> <!-- Thunderbird -->

@@ -1,48 +1,47 @@
-treechildren::-moz-tree-image(enhanced-priority-display-highest) {
-    /* opacity: 0.50; */
+#threadTree treechildren::-moz-tree-image(enhanced-priority-display-highest) {
 }
 
-treechildren::-moz-tree-cell-text(enhanced-priority-display-highest) {
-    /* opacity: 0.50; */
+#threadTree treechildren::-moz-tree-cell-text(enhanced-priority-display-highest) {
+    font-style: italic;
+    font-size: 110%;
 }
 
-treechildren::-moz-tree-row(enhanced-priority-display-highest) {
+#threadTree treechildren::-moz-tree-row(enhanced-priority-display-highest) {
     background-image: url("background-highest.gif");
 }
 
-treechildren::-moz-tree-image(enhanced-priority-display-high) {
-    /* opacity: 0.50; */
+#threadTree treechildren::-moz-tree-image(enhanced-priority-display-high) {
 }
 
-treechildren::-moz-tree-cell-text(enhanced-priority-display-high) {
-    /* opacity: 0.50; */
+#threadTree treechildren::-moz-tree-cell-text(enhanced-priority-display-high) {
+    font-style: italic;
+    font-size: 105%;
 }
 
-treechildren::-moz-tree-row(enhanced-priority-display-high) {
+#threadTree treechildren::-moz-tree-row(enhanced-priority-display-high) {
     background-image: url("background-high.gif");
 }
 
-treechildren::-moz-tree-image(enhanced-priority-display-low) {
-    /* opacity: 0.50; */
+#threadTree treechildren::-moz-tree-image(enhanced-priority-display-low) {
+    opacity: 0.50;
 }
 
-treechildren::-moz-tree-cell-text(enhanced-priority-display-low) {
-    /* opacity: 0.50; */
+#threadTree treechildren::-moz-tree-cell-text(enhanced-priority-display-low) {
+    opacity: 0.50;
 }
 
-treechildren::-moz-tree-row(enhanced-priority-display-low) {
+#threadTree treechildren::-moz-tree-row(enhanced-priority-display-low) {
     background-image: url("background-low.gif");
 }
 
-treechildren::-moz-tree-image(enhanced-priority-display-lowest) {
-    /* opacity: 0.25; */
+#threadTree treechildren::-moz-tree-image(enhanced-priority-display-lowest) {
+    opacity: 0.25;
 }
 
-treechildren::-moz-tree-cell-text(enhanced-priority-display-lowest) {
-    /* opacity: 0.25; */
+#threadTree treechildren::-moz-tree-cell-text(enhanced-priority-display-lowest) {
+    opacity: 0.25;
 }
 
-treechildren::-moz-tree-row(enhanced-priority-display-lowest) {
+#threadTree treechildren::-moz-tree-row(enhanced-priority-display-lowest) {
     background-image: url("background-lowest.gif");
 }
-
