@@ -1,6 +1,12 @@
 <!ENTITY prefwindow.title "Enhanced Priority Display preferences">
 <!ENTITY general.label  "General">
 <!ENTITY advanced.label "Advanced">
+<!ENTITY about.label "About">
+<!ENTITY copyright.label "Copyright &#xA9; 2012 Jonathan Kamens">
+<!ENTITY license.label "Released under the Mozilla Public License, version 1.1">
+<!ENTITY support.label "Please support the development of this and other great add-ons!">
+<!ENTITY contact.label "Contact the author">
+<!ENTITY donate.label "Donate">
 <!ENTITY iconify.label "Display icons instead of words in Priority column">
 <!ENTITY styleHigh.label "Enlarge and italicize high-priority messages">
 <!ENTITY styleLow.label "Fade low-priority messages">

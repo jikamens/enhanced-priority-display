@@ -43,6 +43,7 @@
       <tabs>
 	<tab label="&general.label;"/>
 	<tab label="&advanced.label;"/>
+	<tab label="&about.label;"/>
       </tabs>
       <tabpanels>
 	<tabpanel>
@@ -110,6 +111,19 @@
 		<menuitem name="consolelevel" label="All"    value="All"   />
 	      </menupopup>
 	    </menulist>
+	  </vbox>
+	</tabpanel>
+	<tabpanel>
+	  <vbox>
+	    <description value="&copyright.label;"/>
+	    <description value="&license.label;"/>
+	    <description value="&support.label;"/>
+	    <hbox>
+	      <label value="&contact.label;"
+		     class="text-link" onclick="Components.classes['@mozilla.org/messengercompose;1'].getService(Components.interfaces.nsIMsgComposeService).OpenComposeWindowWithURI(null, Components.classes['@mozilla.org/network/io-service;1'].getService(Components.interfaces.nsIIOService).newURI('mailto:jik+epd@kamens.us?subject=Enhanced%20Priority%20Display', null, null));"/>
+	      <label value="&donate.label;" class="text-link"
+		     onclick="Components.classes['@mozilla.org/uriloader/external-protocol-service;1'].getService(Components.interfaces.nsIExternalProtocolService).loadURI(Components.classes['@mozilla.org/network/io-service;1'].getService(Components.interfaces.nsIIOService).newURI('https://addons.mozilla.org/thunderbird/addon/enhanced-priority-display/contribute/roadblock/?src=prefwindow', null, null));"/>
+	    </hbox>
 	  </vbox>
 	</tabpanel>
       </tabpanels>
