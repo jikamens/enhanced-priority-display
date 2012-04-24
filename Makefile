@@ -12,4 +12,13 @@ EnhancedPriorityDisplay.xpi: $(FILES) check-locales.pl
 	zip -r $@.tmp $(FILES)
 	mv $@.tmp $@
 
-clean: ; -rm -f EnhancedPriorityDisplay.xpi
+translatable: EnhancedPriorityDisplay-translatable.xpi
+.PHONY: translatable
+
+EnhancedPriorityDisplay-translatable.xpi: $(FILES)
+	./fix-addon-ids.pl --check
+	rm -f $@.tmp
+	zip -r $@.tmp $(FILES)
+	mv $@.tmp $@
+
+clean: ; -rm -f *.xpi
