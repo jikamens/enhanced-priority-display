@@ -7,6 +7,7 @@
     <em:version>1.1</em:version>
     <em:creator>Jonathan Kamens</em:creator>
     <em:translator>yfdyh000 from BabelZilla</em:translator><!-- Simplified Chinese -->
+    <em:translator>Cesare</em:translator><!-- Italian -->
     <em:description>Enhanced thread pane display of message priorities.</em:description>
     <em:homepageURL>https://addons.mozilla.org/thunderbird/addon/enhanced-priority-display/</em:homepageURL>
     <em:optionsURL>chrome://EnhancedPriorityDisplay/content/options.xul</em:optionsURL>
