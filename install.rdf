@@ -9,6 +9,27 @@
     <em:translator>yfdyh000 from BabelZilla</em:translator><!-- Simplified Chinese -->
     <em:translator>Cesare</em:translator><!-- Italian -->
     <em:description>Enhanced thread pane display of message priorities.</em:description>
+    <em:localized>
+      <Description>
+	<em:name>Enhanced Priority Display</em:name>
+	<em:locale>fr</em:locale>
+	<em:description>Affichage amélioré des priorités dans le panneau des messages.</em:description>
+      </Description>
+    </em:localized>
+    <em:localized>
+      <Description>
+	<em:name>Enhanced Priority Display</em:name>
+	<em:locale>it</em:locale>
+	<em:description>Visualizzazione evidenziata della priorità dei messaggi in elenco.</em:description>
+      </Description>
+    </em:localized>
+    <em:localized>
+      <Description>
+	<em:name>Enhanced Priority Display</em:name>
+	<em:locale>zh-CN</em:locale>
+	<em:description>增强话题面板的消息优先级显示效果。</em:description>
+      </Description>
+    </em:localized>
     <em:homepageURL>https://addons.mozilla.org/thunderbird/addon/enhanced-priority-display/</em:homepageURL>
     <em:optionsURL>chrome://EnhancedPriorityDisplay/content/options.xul</em:optionsURL>
     <em:targetApplication>
