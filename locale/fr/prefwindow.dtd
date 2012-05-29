@@ -5,10 +5,10 @@
 <!ENTITY about.label "À propos">
 <!ENTITY copyright.label "Copyright © 2012 Jonathan Kamens">
 <!ENTITY license.label "Distribué sous la Mozilla Public License, version 1.1">
-<!ENTITY support.label "Aider au développement de ce module et d'autres excellents !">
+<!ENTITY support.label "Aider au développement de ce module et d'excellents autres !">
 <!ENTITY contact.label "Contacter l'auteur">
 <!ENTITY donate.label "Faire un don">
-<!ENTITY iconify.label "Remplacer les mots par des icônes dans la colonne &quot;Priorité&quot;">
+<!ENTITY iconify.label "Remplacer le texte de la colonne &quot;Priorité&quot; par des icônes">
 <!ENTITY styleHigh.label "Amplifier les messages priorité haute">
 <!ENTITY styleLow.label "Estomper les messages priorité basse">
 <!ENTITY shadeHigh.label "Fond rayé pour les messages priorité haute">
