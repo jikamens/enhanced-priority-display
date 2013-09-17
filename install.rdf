@@ -4,7 +4,7 @@
     <em:id>EnhancedPriorityDisplay@kamens.us</em:id>
     <em:type>2</em:type>
     <em:name>Enhanced Priority Display</em:name>
-    <em:version>1.2</em:version>
+    <em:version>1.3</em:version>
     <em:creator>Jonathan Kamens</em:creator>
     <em:translator>yfdyh000 from BabelZilla</em:translator><!-- Simplified Chinese -->
     <em:translator>Bigpapa</em:translator><!-- French -->
@@ -37,14 +37,14 @@
       <Description>
         <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id> <!-- Thunderbird -->
         <em:minVersion>3.0a1pre</em:minVersion>
-        <em:maxVersion>18.0a1</em:maxVersion>
+        <em:maxVersion>27.0</em:maxVersion>
       </Description>
     </em:targetApplication>
     <em:targetApplication>
       <Description>
         <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id> <!-- Seamonkey -->
         <em:minVersion>2.8</em:minVersion>
-        <em:maxVersion>2.15a1</em:maxVersion>
+        <em:maxVersion>2.24</em:maxVersion>
       </Description>
     </em:targetApplication>
   </Description>

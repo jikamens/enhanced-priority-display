@@ -47,7 +47,28 @@ function enhancedPriorityDisplayIcons() {
 		    return true;
 		},
 
+		_atoms: {},
+		_getAtom: function(aName) {
+		    if (!this._atoms[aName]) {
+			var as = Components.
+			    classes["@mozilla.org/atom-service;1"].
+			    getService(Components.interfaces.nsIAtomService);
+			this._atoms[aName] = as.getAtom(aName);
+		    }
+		    return this._atoms[aName];
+		},
+ 
+		setProperty: function(prop, value) {
+		    if (prop) {
+			prop.AppendElement(this._getAtom(value));
+			return "";
+		    } else {
+			return " " + value;
+		    }
+		},
+
 		getExtensionProperties: function(row, props, which) {
+		    var properties = "";
 		    var hdr = gDBView.getMsgHdrAt(row);
 		    var priority = hdr.getStringProperty("priority");
 		    var doHigh = gBP(which + "High");
@@ -75,20 +96,27 @@ function enhancedPriorityDisplayIcons() {
 			var aserv=Components
 			    .classes["@mozilla.org/atom-service;1"].
 			    getService(Components.interfaces.nsIAtomService);
-			props.AppendElement(aserv.getAtom(property));
+			properties += this.setProperty(props, property);
 		    }
+		    return properties;
 		},
 
 		getCellProperties: function(row, col, props) {
-		    columnHandler.getExtensionProperties(row, props, "Style");
+		    properties = columnHandler.
+			getExtensionProperties(row, props, "Style");
 		    if (columnHandler.old)
-			columnHandler.old.getCellProperties(row, col, props);
+			properties += (columnHandler.old.
+				       getCellProperties(row, col, props));
+		    return properties;
 		},
 
 		getRowProperties: function(row, props) {
-		    columnHandler.getExtensionProperties(row, props, "Shade");
+		    properties = columnHandler.
+			getExtensionProperties(row, props, "Shade");
 		    if (columnHandler.old)
-			columnHandler.old.getRowProperties(row, props);
+			properties += (columnHandler.old.
+				       getRowProperties(row, props));
+		    return properties;
 		},
 
 		getImageSrc: function(row, col) {
@@ -129,7 +157,28 @@ function enhancedPriorityDisplayIcons() {
 			return ! gBP("Iconify");
 		    },
 
+		    _atoms: {},
+		    _getAtom: function(aName) {
+			if (!this._atoms[aName]) {
+			    var as = Components.
+				classes["@mozilla.org/atom-service;1"].
+				getService(Components.interfaces.nsIAtomService);
+			    this._atoms[aName] = as.getAtom(aName);
+			}
+			return this._atoms[aName];
+		    },
+
+		    setProperty: function(prop, value) {
+			if (prop) {
+			    prop.AppendElement(this._getAtom(value));
+			    return "";
+			} else {
+			    return " " + value;
+			}
+		    },
+
 		    getExtensionProperties: function(row, props, which) {
+			var properties = "";
 			var hdr = gDBView.getMsgHdrAt(row);
 			var priority = hdr.getStringProperty("priority");
 			var doHigh = gBP(which + "High");
@@ -154,25 +203,27 @@ function enhancedPriorityDisplayIcons() {
 			    break;
 			}
 			if (property) {
-			    var aserv = Components
-				.classes["@mozilla.org/atom-service;1"]
-				.getService(Components.interfaces.nsIAtomService);
-			    props.AppendElement(aserv.getAtom(property));
+			    properties += this.setProperty(props, property);
 			}
+			return properties;
 		    },
 
 		    getCellProperties: function(row, col, props) {
-			columnHandler .getExtensionProperties(row, props,
-							      "Style");
+			properties = columnHandler.
+			    getExtensionProperties(row, props, "Style");
 			if (columnHandler.old)
-			    columnHandler.old.getCellProperties(row, props);
+			    properties += (columnHandler.old.
+					   getCellProperties(row, props));
+			return properties;
 		    },
 
 		    getRowProperties: function(row, props) {
-			columnHandler.getExtensionProperties(row, props,
-							     "Shade");
+			properties = columnHandler.
+			    getExtensionProperties(row, props, "Shade");
 			if (columnHandler.old)
-			    columnHandler.old.getRowProperties(row, props);
+			    properties += (columnHandler.old.
+					   getRowProperties(row, props));
+			return properties;
 		    },
 
 		    getImageSrc: function(row, col) {
