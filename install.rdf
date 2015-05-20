@@ -13,6 +13,13 @@
     <em:localized>
       <Description>
 	<em:name>Enhanced Priority Display</em:name>
+	<em:locale>de</em:locale>
+	<em:description>Verbesserte Thread-Fenster-Anzeige für Meldeprioritäten.</em:description>
+      </Description>
+    </em:localized>
+    <em:localized>
+      <Description>
+	<em:name>Enhanced Priority Display</em:name>
 	<em:locale>fr</em:locale>
 	<em:description>Affichage amélioré des priorités dans le panneau des messages.</em:description>
       </Description>
