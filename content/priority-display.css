@@ -45,3 +45,7 @@
 #threadTree treechildren::-moz-tree-row(enhanced-priority-display-lowest) {
     background-image: url("background-lowest.gif");
 }
+
+#threadTree treechildren::-moz-tree-row(selected) {
+    background-image: none;
+}
