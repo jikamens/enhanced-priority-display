@@ -2,7 +2,7 @@
 <!ENTITY general.label "常规">
 <!ENTITY advanced.label "高级">
 <!ENTITY about.label "关于">
-<!ENTITY copyright.label "Copyright © 2012 Jonathan Kamens">
+<!ENTITY copyright.label "Copyright © 2012,2013,2015 Jonathan Kamens">
 <!ENTITY license.label "发布于 Mozilla Public License 1.1 版本下">
 <!ENTITY support.label "请支持此附加组件以及其他那些棒极了的附加组件的发展！">
 <!ENTITY contact.label "联系作者">

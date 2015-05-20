@@ -3,7 +3,7 @@
 <!ENTITY general.label "Général">
 <!ENTITY advanced.label "Avancé">
 <!ENTITY about.label "À propos">
-<!ENTITY copyright.label "Copyright © 2012 Jonathan Kamens">
+<!ENTITY copyright.label "Copyright © 2012,2013,2015 Jonathan Kamens">
 <!ENTITY license.label "Distribué sous la Mozilla Public License, version 1.1">
 <!ENTITY support.label "Aider au développement de ce module et d'excellents autres !">
 <!ENTITY contact.label "Contacter l'auteur">
