@@ -8,6 +8,8 @@
 
 #threadTree treechildren::-moz-tree-row(enhanced-priority-display-highest) {
     background-image: url("background-highest.gif");
+    background-size: auto;
+    background-repeat: repeat;
 }
 
 #threadTree treechildren::-moz-tree-image(enhanced-priority-display-high) {
@@ -20,6 +22,8 @@
 
 #threadTree treechildren::-moz-tree-row(enhanced-priority-display-high) {
     background-image: url("background-high.gif");
+    background-size: auto;
+    background-repeat: repeat;
 }
 
 #threadTree treechildren::-moz-tree-image(enhanced-priority-display-low) {
@@ -32,6 +36,8 @@
 
 #threadTree treechildren::-moz-tree-row(enhanced-priority-display-low) {
     background-image: url("background-low.gif");
+    background-size: auto;
+    background-repeat: repeat;
 }
 
 #threadTree treechildren::-moz-tree-image(enhanced-priority-display-lowest) {
@@ -44,6 +50,8 @@
 
 #threadTree treechildren::-moz-tree-row(enhanced-priority-display-lowest) {
     background-image: url("background-lowest.gif");
+    background-size: auto;
+    background-repeat: repeat;
 }
 
 #threadTree treechildren::-moz-tree-row(selected) {
