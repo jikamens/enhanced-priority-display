@@ -28,6 +28,7 @@ function enhancedPriorityDisplayIcons() {
 
     function createGenericHandler(colId, oldHandler) {
 	if (gDBView) {
+            var tree = document.getElementById("threadTree");
 	    var columnHandler = {
 		old: oldHandler,
 
@@ -111,6 +112,9 @@ function enhancedPriorityDisplayIcons() {
 		},
 
 		getRowProperties: function(row, props) {
+                    if (tree.view.selection.isSelected(row)) {
+                        return "";
+                    }
 		    properties = columnHandler.
 			getExtensionProperties(row, props, "Shade");
 		    if (columnHandler.old)
@@ -140,6 +144,7 @@ function enhancedPriorityDisplayIcons() {
 	// Components.interfaces.nsIObserver
 	observe: function(aMsgFolder, aTopic, aData) {  
 	    if (gDBView) {
+                var tree = document.getElementById("threadTree");
 		var columnHandler = {
 		    getCellText: function(row, col) {
 			if (gBP("Iconify"))
@@ -218,6 +223,9 @@ function enhancedPriorityDisplayIcons() {
 		    },
 
 		    getRowProperties: function(row, props) {
+                        if (tree.view.selection.isSelected(row)) {
+                            return "";
+                        }
 			properties = columnHandler.
 			    getExtensionProperties(row, props, "Shade");
 			if (columnHandler.old)
