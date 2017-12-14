@@ -49,11 +49,21 @@ function enhancedPriorityDisplayIcons() {
 		},
 
 		_atoms: {},
+                hasAtoms: true,
 		_getAtom: function(aName) {
+                    if (!this.hasAtoms)
+                        return null;
 		    if (!this._atoms[aName]) {
-			var as = Components.
-			    classes["@mozilla.org/atom-service;1"].
-			    getService(Components.interfaces.nsIAtomService);
+                        try {
+			    var as = Components.
+			        classes["@mozilla.org/atom-service;1"].
+			        getService(
+                                    Components.interfaces.nsIAtomService);
+                        }
+                        catch (ex) {
+                            this.hasAtoms = false;
+                            return null;
+                        }
 			this._atoms[aName] = as.getAtom(aName);
 		    }
 		    return this._atoms[aName];
@@ -93,12 +103,8 @@ function enhancedPriorityDisplayIcons() {
 			    property = "enhanced-priority-display-lowest";
 			break;
 		    }
-		    if (property) {
-			var aserv=Components
-			    .classes["@mozilla.org/atom-service;1"].
-			    getService(Components.interfaces.nsIAtomService);
+		    if (property)
 			properties += this.setProperty(props, property);
-		    }
 		    return properties;
 		},
 
@@ -163,11 +169,21 @@ function enhancedPriorityDisplayIcons() {
 		    },
 
 		    _atoms: {},
+                    hasAtoms: true,
 		    _getAtom: function(aName) {
+                        if (! this.hasAtoms)
+                            return null;
 			if (!this._atoms[aName]) {
-			    var as = Components.
-				classes["@mozilla.org/atom-service;1"].
-				getService(Components.interfaces.nsIAtomService);
+                            try {
+			        var as = Components.
+				    classes["@mozilla.org/atom-service;1"].
+				    getService(
+                                        Components.interfaces.nsIAtomService);
+                            }
+                            catch (ex) {
+                                hasAtoms = false;
+                                return null;
+                            }
 			    this._atoms[aName] = as.getAtom(aName);
 			}
 			return this._atoms[aName];
@@ -207,9 +223,8 @@ function enhancedPriorityDisplayIcons() {
 				property = "enhanced-priority-display-lowest";
 			    break;
 			}
-			if (property) {
+			if (property)
 			    properties += this.setProperty(props, property);
-			}
 			return properties;
 		    },
 
