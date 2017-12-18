@@ -1,4 +1,5 @@
 content	EnhancedPriorityDisplay	content/
+content EnhancedPriorityDisplay-defaults defaults/
 overlay	chrome://messenger/content/messenger.xul	chrome://EnhancedPriorityDisplay/content/priority-display.xul
 locale	EnhancedPriorityDisplay	de	locale/de/
 locale	EnhancedPriorityDisplay	en-US	locale/en-US/
