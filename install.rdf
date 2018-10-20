@@ -4,7 +4,7 @@
     <em:id>EnhancedPriorityDisplay@kamens.us</em:id>
     <em:type>2</em:type>
     <em:name>Enhanced Priority Display</em:name>
-    <em:version>1.8</em:version>
+    <em:version>1.8.1</em:version>
     <em:creator>Jonathan Kamens</em:creator>
     <em:translator>yfdyh000 from BabelZilla</em:translator><!-- Simplified Chinese -->
     <em:translator>Bigpapa</em:translator><!-- French -->
@@ -52,7 +52,7 @@
       <Description>
         <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id> <!-- SeaMonkey -->
         <em:minVersion>2.8</em:minVersion>
-        <em:maxVersion>2.57</em:maxVersion>
+        <em:maxVersion>2.59</em:maxVersion>
       </Description>
     </em:targetApplication>
   </Description>
