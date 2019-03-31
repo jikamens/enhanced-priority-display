@@ -270,7 +270,11 @@ function enhancedPriorityDisplayIcons() {
 		    getImageSrc: function(row, col) {
 			if (! gBP("Iconify"))
 			    return null;
-			var hdr = gDBView.getMsgHdrAt(row);
+                        try {
+			    var hdr = gDBView.getMsgHdrAt(row);
+                        } catch (ex) {
+                            return null;
+                        }
 			var priority = hdr.getStringProperty("priority");
 			switch (priority) {
 			case "6":
