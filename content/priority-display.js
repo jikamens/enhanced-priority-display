@@ -1,5 +1,5 @@
-Components.utils.import("resource:///modules/gloda/log4moz.js");
-Components.utils.import(
+var {Log4Moz} = ChromeUtils.import("resource:///modules/gloda/log4moz.js");
+const {EPDDefaultPreferencesLoader} = ChromeUtils.import(
     "chrome://EnhancedPriorityDisplay/content/defaultPreferencesLoader.jsm");
 
 function enhancedPriorityDisplayIcons() {
@@ -14,7 +14,7 @@ function enhancedPriorityDisplayIcons() {
     // application version which has already loaded the default preferences
     // automatically.
     try {
-        var loader = new DefaultPreferencesLoader();
+        var loader = new EPDDefaultPreferencesLoader();
         loader.parseUri("chrome://EnhancedPriorityDisplay-defaults/content/" +
                         "preferences/EnhancedPriorityDisplay.js");
     } catch (ex) {}
