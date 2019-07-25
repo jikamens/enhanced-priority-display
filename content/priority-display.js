@@ -1,6 +1,4 @@
 var {Log4Moz} = ChromeUtils.import("resource:///modules/gloda/log4moz.js");
-const {EPDDefaultPreferencesLoader} = ChromeUtils.import(
-    "chrome://EnhancedPriorityDisplay/content/defaultPreferencesLoader.jsm");
 
 function enhancedPriorityDisplayIcons() {
     // Current Thunderbird nightly builds do not load default preferences
@@ -9,15 +7,11 @@ function enhancedPriorityDisplayIcons() {
     // it ourselves when we convert from overlay to bootstrapped, and there
     // shouldn't be any harm in setting the default values of preferences twice
     // (i.e., both Thunderbird and our code doing it).
-    // This is in a try/catch because if it fails it's probably because
-    // setStringPref failed, in which case we're running inside an earlier
-    // application version which has already loaded the default preferences
-    // automatically.
-    try {
-        var loader = new EPDDefaultPreferencesLoader();
-        loader.parseUri("chrome://EnhancedPriorityDisplay-defaults/content/" +
-                        "preferences/EnhancedPriorityDisplay.js");
-    } catch (ex) {}
+    var {DefaultPreferencesLoader} = ChromeUtils.import(
+        "chrome://EnhancedPriorityDisplay/content/defaultPreferencesLoader.jsm");
+    var loader = new DefaultPreferencesLoader();
+    loader.parseUri("chrome://EnhancedPriorityDisplay-defaults/content/" +
+                    "preferences/EnhancedPriorityDisplay.js");
 
     var oldColumnHandler;
     var logger = Log4Moz
