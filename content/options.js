@@ -78,6 +78,13 @@ var EPDOptions = {
 
     SetOnLoad: function() {
         window.removeEventListener("load", EPDOptions.SetOnLoad, false);
+        document.addEventListener("dialogextra1", function(event) {
+            EPDOptions.LoadPrefs();
+        });
+        document.addEventListener("dialogaccept", function(event) {
+            if (! EPDOptions.ValidatePrefs())
+                event.preventDefault();
+        });
         EPDOptions.LoadPrefs();
     },
 };

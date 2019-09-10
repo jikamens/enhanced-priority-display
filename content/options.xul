@@ -13,10 +13,7 @@
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     title="&prefwindow.title;"
     buttons="accept,cancel,extra1"
-    buttonlabelextra1="&reset.value;"
-    ondialogextra1="EPDOptions.LoadPrefs();"
-    ondialogaccept="return EPDOptions.ValidatePrefs();"
-    onbeforeunload="return EPDOptions.ValidatePrefs() ? null : 'err';">
+    buttonlabelextra1="&reset.value;">
   <script src="options.js"/>
   <prefpane id="EnhancedPriorityDisplay-pane1" label="&prefwindow.title;">
     <tabbox>
