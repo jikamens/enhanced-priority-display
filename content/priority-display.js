@@ -1,6 +1,4 @@
 var {Log4Moz} = ChromeUtils.import("resource:///modules/gloda/log4moz.js");
-var {KickstarterPopup} = ChromeUtils.import(
-    "chrome://EnhancedPriorityDisplay/content/kickstarter.jsm");
 
 function enhancedPriorityDisplayIcons() {
     // Current Thunderbird nightly builds do not load default preferences
@@ -38,6 +36,8 @@ function enhancedPriorityDisplayIcons() {
 	var ObserverService = Components.classes["@mozilla.org/observer-service;1"]
 	    .getService(Components.interfaces.nsIObserverService);
 	ObserverService.addObserver(createDbObserver, "MsgCreateDBView", false);
+        var {KickstarterPopup} = ChromeUtils.import(
+            "chrome://EnhancedPriorityDisplay/content/kickstarter.jsm");
         KickstarterPopup(
             window, "chrome://EnhancedPriorityDisplay/content/kickstarter.xul");
     };
