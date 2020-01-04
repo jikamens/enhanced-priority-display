@@ -85,7 +85,7 @@ if ($save_ignored and ! $ignore_file) {
 
 # Now, find ids in XUL files that need to be fixed
 
-find({ wanted => \&scan_xul, no_chdir => 1 }, ".");
+find({ wanted => \&scan_xul, no_chdir => 1 }, "content");
 
 # Now do the fixing
 
