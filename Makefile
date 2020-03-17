@@ -7,7 +7,6 @@ CMD=find . \( \( -name '.??*' -o -name src -o -name send-later \) -prune \) -o \
 FILES=$(shell $(CMD))
 
 EnhancedPriorityDisplay.xpi: $(FILES) check-locales.pl
-	./send-later/utils/make-kickstarter.sh
 	./check-locales.pl
 	./fix-addon-ids.pl --check
 	rm -f $@.tmp
