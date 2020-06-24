@@ -364,7 +364,7 @@ function enhancedPriorityDisplayIcons() {
 	    }
 	}
     };
-	Services.obs.addObserver(observer, "load", false);
+	//Services.obs.addObserver(observer, "load", false);
     window.addEventListener("load", priorityIconsOnLoad, false);
     // window.addEventListener("unload", priorityIconsOnUnload, false);
 };
