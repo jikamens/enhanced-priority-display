@@ -1,4 +1,37 @@
-var {Log4Moz} = ChromeUtils.import("resource:///modules/gloda/log4moz.js");
+var { ExtensionCommon } = ChromeUtils.import("resource://gre/modules/ExtensionCommon.jsm");
+var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
+
+//var {Log4Moz} = ChromeUtils.import("resource:///modules/gloda/log4moz.js");
+var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
+//var {Log4Moz} = ChromeUtils.import("resource:///modules/gloda/log4moz.js");
+
+var extension = ExtensionParent.GlobalManager.getExtension("EnhancedPriorityDisplay@kamens.us");
+var { ExtensionSupport } = ChromeUtils.import("resource:///modules/ExtensionSupport.jsm");
+var idPrefix ="EnhancedPriorityDisplay-";
+let window = Services.wm.getMostRecentWindow("mail:3pane");
+
+var epd_bgrndAPI = class extends ExtensionCommon.ExtensionAPI
+{
+    getAPI(context)
+        {
+               return{
+                epd_bgrndAPI:
+                            {
+                                IconsOnLoad:function()
+                                {
+                                    try{priorityIconsOnLoad();}
+                                    catch(exception){console.log(exception);}
+                                },
+                                Epdicons_apply:function()
+                                {
+                                    try{enhancedPriorityDisplayIcons.apply();}
+                                    catch(exception){console.error(exception)}
+                                }
+
+                            }
+                    };
+        }
+};
 
 function enhancedPriorityDisplayIcons() {
     // Current Thunderbird nightly builds do not load default preferences
@@ -7,18 +40,15 @@ function enhancedPriorityDisplayIcons() {
     // it ourselves when we convert from overlay to bootstrapped, and there
     // shouldn't be any harm in setting the default values of preferences twice
     // (i.e., both Thunderbird and our code doing it).
-    var {DefaultPreferencesLoader} = ChromeUtils.import(
-        "chrome://EnhancedPriorityDisplay/content/defaultPreferencesLoader.jsm");
+    var {DefaultPreferencesLoader} = ChromeUtils.import(extension.rootURI.resolve("/content/defaultPreferencesLoader.js"));
     var loader = new DefaultPreferencesLoader();
-    loader.parseUri("chrome://EnhancedPriorityDisplay-defaults/content/" +
-                    "preferences/EnhancedPriorityDisplay.js");
-
+    loader.parseUri(extension.rootURI.resolve("prefs.jsm"));
     var oldColumnHandler;
-    var logger = Log4Moz
+   /* var logger = Log4Moz
 	.getConfiguredLogger("extensions.EnhancedPriorityDisplay",
 			     Log4Moz.Level.Trace,
 			     Log4Moz.Level.Info,
-			     Log4Moz.Level.Debug);
+			     Log4Moz.Level.Debug);*/
     var prefService = Components.classes["@mozilla.org/preferences-service;1"]
         .getService(Components.interfaces.nsIPrefBranch);
 
@@ -32,22 +62,25 @@ function enhancedPriorityDisplayIcons() {
 				       pref);
     };
 
+
     function priorityIconsOnLoad() {
 	var ObserverService = Components.classes["@mozilla.org/observer-service;1"]
 	    .getService(Components.interfaces.nsIObserverService);
 	ObserverService.addObserver(createDbObserver, "MsgCreateDBView", false);
-    };
 
+	console.log("called from priorityIconsOnLoad")
+    };
+   var observer= function (){priorityIconsOnLoad(); }
     function createGenericHandler(colId, oldHandler) {
-	if (gDBView) {
-            var tree = document.getElementById("threadTree");
+	if (window.gDBView) {
+            var tree = window.document.getElementById("threadTree");
 	    var columnHandler = {
 		old: oldHandler,
 
 		getCellText: function(row, col) {
 		    if (columnHandler.old)
 			return columnHandler.old.getCellText(row, col);
-		    return gDBView.cellTextForColumn(row, colId);
+		    return window.gDBView.cellTextForColumn(row, colId);
 		},
 
 		getSortStringForRow: function(hdr) {
@@ -80,7 +113,7 @@ function enhancedPriorityDisplayIcons() {
 		    }
 		    return this._atoms[aName];
 		},
-
+ 
 		setProperty: function(prop, value) {
 		    if (prop) {
 			prop.AppendElement(this._getAtom(value));
@@ -92,7 +125,7 @@ function enhancedPriorityDisplayIcons() {
 
 		getExtensionProperties: function(row, props, which) {
 		    var properties = "";
-		    var hdr = gDBView.getMsgHdrAt(row);
+		    var hdr = window.gDBView.getMsgHdrAt(row);
 		    var priority = hdr.getStringProperty("priority");
 		    var doHigh = gBP(which + "High");
 		    var doLow = gBP(which + "Low");
@@ -117,6 +150,8 @@ function enhancedPriorityDisplayIcons() {
 		    }
 		    if (property)
 			properties += this.setProperty(props, property);
+
+			console.log(properties);
 		    return properties;
 		},
 
@@ -154,20 +189,23 @@ function enhancedPriorityDisplayIcons() {
 		}
 	    };
 
-	    gDBView.addColumnHandler(colId, columnHandler);
+	    window.gDBView.addColumnHandler(colId, columnHandler);
 	}
     };
 
     var createDbObserver = {
 	// Components.interfaces.nsIObserver
-	observe: function(aMsgFolder, aTopic, aData) {  
-	    if (gDBView) {
-                var tree = document.getElementById("threadTree");
+	observe: function(aMsgFolder, aTopic, aData) {
+
+	console.log("called from observe")
+	    if (window.gDBView) {
+			console.log("window.gDBView-------------true")
+                var tree = window.document.getElementById("threadTree");
 		var columnHandler = {
 		    getCellText: function(row, col) {
 			if (gBP("Iconify"))
 			    return "";
-			return gDBView.cellTextForColumn(row, "priorityCol");
+			return window.gDBView.cellTextForColumn(row, "priorityCol");
 		    },
 
 		    getSortStringForRow: function(hdr) {
@@ -211,8 +249,9 @@ function enhancedPriorityDisplayIcons() {
 		    },
 
 		    getExtensionProperties: function(row, props, which) {
+				console.log("called from getExtensionProperties")
 			var properties = "";
-			var hdr = gDBView.getMsgHdrAt(row);
+			var hdr = window.gDBView.getMsgHdrAt(row);
 			var priority = hdr.getStringProperty("priority");
 			var doHigh = gBP(which + "High");
 			var doLow = gBP(which + "Low");
@@ -242,6 +281,7 @@ function enhancedPriorityDisplayIcons() {
 
 		    getCellProperties: function(row, col, props) {
 			properties = columnHandler.
+
 			    getExtensionProperties(row, props, "Style");
 			if (columnHandler.old)
 			    properties += (columnHandler.old.
@@ -262,10 +302,11 @@ function enhancedPriorityDisplayIcons() {
 		    },
 
 		    getImageSrc: function(row, col) {
+				console.log("called from getExtensionProperties");
 			if (! gBP("Iconify"))
 			    return null;
                         try {
-			    var hdr = gDBView.getMsgHdrAt(row);
+			    var hdr = window.gDBView.getMsgHdrAt(row);
                         } catch (ex) {
                             return null;
                         }
@@ -294,11 +335,12 @@ function enhancedPriorityDisplayIcons() {
 		};
 
 		try {
-		    columnHandler.old = gDBView.getColumnHandler("priorityCol");
+		    columnHandler.old = window.gDBView.getColumnHandler("priorityCol");
 		}
 		catch (ex) {}
-		gDBView.addColumnHandler("priorityCol", columnHandler);
-		var threadCols = document.getElementById("threadCols");
+		window.gDBView.addColumnHandler("priorityCol", columnHandler);
+		var threadCols = window.document.getElementById("threadCols");
+		console.log(threadCols);
 		if (! threadCols)
 		    return;
 		var columns = threadCols.getElementsByTagName("treecol");
@@ -309,7 +351,7 @@ function enhancedPriorityDisplayIcons() {
 		    if (! id)
 			continue;
 		    var handler;
-		    try { handler = gDBView.getColumnHandler(id); }
+		    try { handler = window.gDBView.getColumnHandler(id); }
 		    catch (ex) {}
 		    if (handler && ! handler.isString())
 			continue;
@@ -322,9 +364,8 @@ function enhancedPriorityDisplayIcons() {
 	    }
 	}
     };
-
+	Services.obs.addObserver(observer, "load", false);
     window.addEventListener("load", priorityIconsOnLoad, false);
     // window.addEventListener("unload", priorityIconsOnUnload, false);
 };
 
-enhancedPriorityDisplayIcons.apply();

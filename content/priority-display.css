@@ -1,55 +1,35 @@
-#threadTree treechildren::-moz-tree-image(enhanced-priority-display-highest) {
-}
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
 
-#threadTree treechildren::-moz-tree-cell-text(enhanced-priority-display-highest) {
-    font-style: italic;
-    font-size: 110%;
-}
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
 
-#threadTree treechildren::-moz-tree-row(enhanced-priority-display-highest) {
-    background-image: url("background-highest.png");
-    background-size: auto;
-    background-repeat: repeat;
-}
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
 
-#threadTree treechildren::-moz-tree-image(enhanced-priority-display-high) {
-}
+  /* Create an active/current tablink class */
+  .tab button .active {
+    background-color: #ccc;
+  }
 
-#threadTree treechildren::-moz-tree-cell-text(enhanced-priority-display-high) {
-    font-style: italic;
-    font-size: 105%;
-}
-
-#threadTree treechildren::-moz-tree-row(enhanced-priority-display-high) {
-    background-image: url("background-high.png");
-    background-size: auto;
-    background-repeat: repeat;
-}
-
-#threadTree treechildren::-moz-tree-image(enhanced-priority-display-low) {
-    opacity: 0.50;
-}
-
-#threadTree treechildren::-moz-tree-cell-text(enhanced-priority-display-low) {
-    opacity: 0.50;
-}
-
-#threadTree treechildren::-moz-tree-row(enhanced-priority-display-low) {
-    background-image: url("background-low.png");
-    background-size: auto;
-    background-repeat: repeat;
-}
-
-#threadTree treechildren::-moz-tree-image(enhanced-priority-display-lowest) {
-    opacity: 0.25;
-}
-
-#threadTree treechildren::-moz-tree-cell-text(enhanced-priority-display-lowest) {
-    opacity: 0.25;
-}
-
-#threadTree treechildren::-moz-tree-row(enhanced-priority-display-lowest) {
-    background-image: url("background-lowest.png");
-    background-size: auto;
-    background-repeat: repeat;
-}
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
