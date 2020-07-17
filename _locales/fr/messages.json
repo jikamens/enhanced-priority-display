@@ -20,11 +20,11 @@
        "description": ""
    },
    "shade-high-checkbox":{
-       "message": "Stripped background for high-priority messages",
+       "message": "Striped background for high-priority messages",
        "description": ""
    },
    "shade-low-checkbox":{
-       "message": "Stripped background for low-priority messages",
+       "message": "Striped background for low-priority messages",
        "description": ""
    },
    "highest-icon-textbox":{
